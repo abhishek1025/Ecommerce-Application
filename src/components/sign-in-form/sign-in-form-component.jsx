@@ -4,8 +4,7 @@ import { signAuthUserWithEmailAndPassword, signInWithGooglePopup, createUserDocu
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
-import './sign-in-form-styles.scss'
-
+import './sign-in-form-styles.scss';
 
 
 const defaultFormFields = {
@@ -18,8 +17,18 @@ const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { email, password } = formFields;
 
+
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
+    }
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormFields({ ...formFields, [name]: value })
+    }
+
+    const sigInWithGoogle = async () => {
+        await signInWithGooglePopup();
     }
 
     const handleSubmit = async (event) => {
@@ -27,8 +36,7 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-            const response = await signAuthUserWithEmailAndPassword(email, password)
-            console.log(response)
+            const { user } = await signAuthUserWithEmailAndPassword(email, password)
             resetFormFields();
 
         } catch (err) {
@@ -45,16 +53,6 @@ const SignInForm = () => {
         }
 
 
-    }
-
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormFields({ ...formFields, [name]: value })
-    }
-
-    const sigInWithGoogle = async () => {
-        const { user } = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user)
     }
 
 
