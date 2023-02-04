@@ -10,7 +10,7 @@ import { UserContext } from "../../components/contexts/user.context";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CardIcon from "../../components/cart-icon/cart-icon.component";
-import CartDropdown from "../../components/card-dropdown/card-dropdown.component";
+import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { CartContext } from "../../components/contexts/cart.context";
 
 
