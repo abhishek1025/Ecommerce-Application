@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
 
     return (
         <div className='product-card-container'>
-            <img src={imageUrl} alt={name} />
+            <img src={imageUrl.replace(' ', '')} alt={name} />
 
             <div className='footer'>
                 <span className='name'>{name}</span>
