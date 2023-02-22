@@ -13,7 +13,6 @@ const CategoryPreview = ({ title, products }) => {
 
             <div className='category-preview-container'>
 
-
                 <div className='preview'>
                     {
                         products
